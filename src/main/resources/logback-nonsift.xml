@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included debug="false">
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/nonsift.log</file>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d [%X{logCategory}] %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.github.sebphil.HelloController" level="INFO" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+</included>

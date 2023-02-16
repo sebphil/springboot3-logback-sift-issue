@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- unconditionally including a sift appender works -->
+<!--
+    <include resource="logback-sift.xml"/>
+-->
+
+    <!-- conditionally including a non-sift appender also works -->
+<!--
+    <springProfile name="sift">
+        <include resource="logback-nonsift.xml"/>
+    </springProfile>
+-->
+
+    <!-- but conditionally including a sift appender makes the app crash at startup -->
+    <springProfile name="sift">
+        <include resource="logback-sift.xml"/>
+    </springProfile>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
